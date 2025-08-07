@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+:root{
+    --bodyBg: #0E0E0E;
+    --white_color:#FFFFFF;
+
+}
+body{
+    background: var(--bodyBg);
+}
+
+/* header */
+
+.container{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_wrapper{
+    margin-top: 74px;
+    padding: 0px 100px;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.nav a{
+    text-decoration: none;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--white_color);
+}
+.headerTitle{
+    font-family: Inter;
+    font-weight: 600;
+    color: var(--white_color);
+    font-size: 20px;
+}
+.hamburger {
+    display: none;
+    z-index: 10;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    background-color: var(--white_color);
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: var(--white_color);
+    max-width: 20px;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 130px;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    gap: 10px;
+    z-index: 9;
+}
+
+.mobile-nav.open {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+    .nav {
+        display: none;
+    }
+}
+@media(max-width:600px){
+    .header_wrapper{
+        padding: 0px 50px;
+        gap: 30px;
+    }
+    .mobile-nav {
+        right: 180px;
+        top: 110px;
+        padding: 30px 10px;
+    }
+    .hamburger-box{
+        right: 0px;
+        margin: 0 a;
+    }
+    .headerInside{
+        flex-direction: column;
+    }
+}
+
+/* fighting section */
