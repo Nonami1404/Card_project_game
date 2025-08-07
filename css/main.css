@@ -1,113 +1,315 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-}
-:root{
-    --bodyBg: #0E0E0E;
-    --white_color:#FFFFFF;
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
 
-}
-body{
-    background: var(--bodyBg);
-}
+    :root {
+      --bodyBg: #0E0E0E;
+      --white_color: #FFFFFF;
+      --blackColor: #111111;
+    }
 
-/* header */
+    body {
+      background: var(--bodyBg);
+      font-family: 'Inter', sans-serif;
+      color: var(--white_color);
+    }
 
-.container{
-    max-width: 1240px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.header_wrapper{
-    margin-top: 74px;
-    padding: 0px 100px;
-}
-.nav{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.nav a{
-    text-decoration: none;
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--white_color);
-}
-.headerTitle{
-    font-family: Inter;
-    font-weight: 600;
-    color: var(--white_color);
-    font-size: 20px;
-}
-.hamburger {
-    display: none;
-    z-index: 10;
-}
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-    background-color: var(--white_color);
-}
+    .header_wrapper {
+      margin-top: 74px;
+    }
 
-.hamburger.is-active .hamburger-inner,
-.hamburger.is-active .hamburger-inner::before,
-.hamburger.is-active .hamburger-inner::after {
-    background-color: var(--white_color);
-    max-width: 20px;
-}
+    .headerTitle {
+      font-weight: 600;
+      font-size: 20px;
+    }
 
-.mobile-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    right: 130px;
-    background-color: #333;
-    padding: 15px;
-    border-radius: 8px;
-    gap: 10px;
-    z-index: 9;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-.mobile-nav.open {
-    display: flex;
-}
+    .nav a {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--white_color);
+      transition: color 0.3s ease;
+    }
 
-@media (max-width: 768px) {
-    .desktop-nav {
-        display: none;
+    .nav a:hover {
+      color: #facc15;
     }
 
     .hamburger {
-        display: block;
+      display: none;
+      z-index: 10;
     }
-    .nav {
-        display: none;
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+      background-color: var(--white_color);
     }
-}
-@media(max-width:600px){
-    .header_wrapper{
-        padding: 0px 50px;
-        gap: 30px;
-    }
+
     .mobile-nav {
-        right: 180px;
-        top: 110px;
-        padding: 30px 10px;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      background-color: #1a1a1a;
+      padding: 15px 20px;
+      border-radius: 10px;
+      gap: 10px;
+      z-index: 9;
     }
-    .hamburger-box{
-        right: 0px;
-        margin: 0 a;
+
+    .mobile-nav.open {
+      display: flex;
     }
-    .headerInside{
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .mobile-nav {
+        right: 15px;
+        top: 110px;
+        width: calc(100% - 30px);
+      }
+      .hamburger-inner::before, .hamburger-inner::after {
+        width: 20px;
+        background: var(--white_color);
+      }
     }
-}
 
 /* fighting section */
+
+.main-section {
+  padding: 40px 20px;
+}
+
+.fighter-card-section {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.fighter-card {
+  position: relative;
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.fighter-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #facc15;
+  color: var(--blackColor);
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.fighter-flag {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.fighter-photo {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.fighter-info h2 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.fighter-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.fight-area {
+  width: 320px;
+  height: 360px;
+  background-color: #1a1a1a;
+  border-radius: 16px;
+}
+
+.start-fight-btn {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.start-fight-btn button,
+.show-more-btn button {
+  background-color: #facc15;
+  color: var(--blackColor);
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.start-fight-btn button:hover,
+.show-more-btn button:hover {
+  background-color: #eab308;
+}
+
+.recommended-section {
+  background-color: #000;
+  padding: 40px 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.recommended-section h2 {
+  margin-bottom: 30px;
+}
+
+.recommended-cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.card-placeholder {
+  width: 120px;
+  height: 160px;
+  background-color: #444;
+  border-radius: 12px;
+}
+
+.show-more-btn {
+  margin-top: 25px;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px 10px;
+  background-color: #0d0d0d;
+  color: #888;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .main-section{
+    margin-top: 100px;
+  }  
+
+  .fighter-card-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fight-area {
+    width: 90%;
+    height: 300px;
+  }
+
+  .fighter-card {
+    width: 90%;
+  }
+
+  .recommended-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card-placeholder {
+    width: 100px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 600px) {
+  .fighter-card-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .fighter-card {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .fighter-photo {
+    border-radius: 10px;
+  }
+
+  .fight-area {
+    width: 95%;
+    height: 240px;
+  }
+
+  .fighter-info h2 {
+    font-size: 20px;
+  }
+
+  .fighter-info p {
+    font-size: 13px;
+  }
+
+  .start-fight-btn button,
+  .show-more-btn button {
+    width: 90%;
+    font-size: 15px;
+  }
+
+  .recommended-section h2 {
+    font-size: 18px;
+  }
+
+  .card-placeholder {
+    width: 80px;
+    height: 120px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 20px 10px;
+  }
+}
