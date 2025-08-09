@@ -8,52 +8,50 @@
       menu.classList.toggle('open');
     });
     fetch('js/info.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Ошибка HTTP: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        class Card{
-          constructor (flag, fightersPhoto, name, placeOfBirth, dateOfBirth, height, weight, age, wins, loses){
-            this.flag = flag;
-            this.fightersPhoto = fightersPhoto;
-            this.name = name;
-            this.placeOfBirth = placeOfBirth;
-            this.dateOfBirth = dateOfBirth;
-            this.height = height;
-            this.weight = weight;
-            this.age = age;
-            this.wins = wins;
-            this.loses = loses;
-          }
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Ошибка HTTP: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    const wrapperDiv = document.querySelector(".recommended-cards");
+
+    function structure(fighter) {
+      const div = document.createElement("div");
+      div.classList.add("fighter-info-card");
+
+      div.innerHTML = `
+    
+    <img class="fighter-flag flag1" src="${fighter.imgFlag}" alt="Flag">
+ 
+    <img class="fighter-photo  photo1" src="${fighter.ImgPhoto}" alt="${fighter["Имя"]} ${fighter["Фамилия"]}">
+    <div class="fighter-info">
+        <h2>${fighter["Имя"]} ${fighter["Фамилия"]}</h2>
+        <p>Где родился: ${fighter["Где родился"]}</p>
+        <p>Год рождения: ${fighter["Год рождения"]}</p>
+        <p>Рост: ${fighter["Рост"]} см</p>
+        <p>Вес: ${fighter["Вес"]} кг</p>
+        <p>Возраст: ${fighter["Возраст"]}</p>
+        <p><strong>Побед: ${fighter["Побед"]}</strong></p>
+        <p><strong>Поражений: ${fighter["Поражений"]}</strong></p>
+    </div>
 
 
-          structure(){
-            const div = document.createElement("div");
-            div.classList.add("fighter-info");
-            const cardWrapper = document.querySelector(".recommended-section");
-            div.innerHTML = `
-                <img class="fighter-flag" src="${}" alt="Flag">
-                <img class="fighter-photo" src="https://upload.wikimedia.org/wikipedia/commons/7/71/Arman_Tsarukyan_UFC_2022.jpg" alt="Fighter"> -->
-                <!-- <div class="fighter-info">
-                  <h2>Арман Царукян</h2>
-                  <p>Где родился: Ахалкалаки, Грузия</p>
-                  <p>Год рождения: 11 октября, 1996</p>
-                  <p>Рост: 170 см</p>
-                  <p>Вес: 70 кг</p>
-                  <p>Возраст: 28</p>
-                  <p><strong>Побед: 22</strong></p>
-                  <p><strong>Поражений: 3</strong></p>
-            `
-            
-            
-            cardWrapper.append(div);
+      `;
 
-          }
-        }
-      })
-      .catch(error => console.error("Ошибка загрузки JSON:", error));
+
+      
+      
+
+
+      wrapperDiv.append(div);
+    }
+
+    
+    data.forEach(fighter => structure(fighter));
+  })
+  .catch(error => console.error("Ошибка загрузки JSON:", error));
+
 
   });

@@ -149,13 +149,25 @@
   width: 40px;
   margin-bottom: 10px;
 }
+.flag1{
+  margin-top: 5px;
+  height: 30px;
+}
 
+.photo1{
+  width: 280px;
+  height: px;
+}
 .fighter-photo {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 15px;
 }
-
+.fighter-info-card{
+border-radius: 15px;
+width: 280px;
+background-color: #1a1a1a;
+}
 .fighter-info h2 {
   margin: 10px 0;
   font-size: 22px;
@@ -190,6 +202,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
+  margin-bottom: 20px;
 }
 
 .start-fight-btn button:hover,
@@ -202,6 +215,11 @@
   padding: 40px 20px;
   border-radius: 20px;
   text-align: center;
+  display: flex;
+
+align-items: center;
+justify-content: center;
+flex-direction: column;
 }
 
 .recommended-section h2 {
@@ -211,8 +229,10 @@
 .recommended-cards {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 25px;
   flex-wrap: wrap;
+  width: 1300px;
+
 }
 
 .card-placeholder {
