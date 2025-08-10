@@ -309,6 +309,12 @@
   }
 }
 
+@media(max-width:685px){
+  .fighters{
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 600px) {
   .fighter-card-section {
     flex-direction: column;
