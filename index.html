@@ -13,88 +13,63 @@
 </head>
 <body>
     <header>
-    <div class="header_wrapper">
-      <div class="container headerInside">
-        <span class="headerTitle">FightersClub</span>
+        <div class="header_wrapper">
+            <div class="container headerInside">
+                <span class="headerTitle">FightersClub</span>
+                <ul class="nav">
+                    <li><a href="#start-fight-btn">Начать бой</a></li>
+                    <li><a href="#fighters">Бойцы</a></li>
+                </ul>
+                <button class="hamburger hamburger--spin" type="button" id="burgerButton">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
 
-        <ul class="nav">
-          <li><a href="#">Аккаунт</a></li>
-          <li><a href="#">Обновления</a></li>
-          <li><a href="#">Разработчик</a></li>
-          <li><a href="#">Связь С Нами</a></li>
-        </ul>
-
-        <button class="hamburger hamburger--spin" type="button" id="burgerButton">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
-        </button>
-
-        <ul class="nav mobile-nav" id="mobileMenu">
-          <li><a href="#">Аккаунт</a></li>
-          <li><a href="#">Обновления</a></li>
-          <li><a href="#">Разработчик</a></li>
-          <li><a href="#">Связь С Нами</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
+                <ul class="nav mobile-nav" id="mobileMenu">
+                    <li><a href="#start-fight-btn">Начать бой</a></li>
+                    <li><a href="#fighters">Бойцы</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
     <main class="main-section">
-    <section class="fighter-card-section">
+    <section>
+      <div class="fighter-card-section">
+        <div class="betRadio">
+          <h2>Баланс: <span id="balance"></span> монет</h2>
+          <div class="label">
+            <label>
+              <input type="radio" name="bet" value="fighter1"> Поставить на бойца 1
+            </label>
+            <label>
+              <input type="radio" name="bet" value="fighter2"> Поставить на бойца 2
+            </label>
+          </div>
+        </div>
+        <button class="start-fight-btn">Начать бой</button>
 
-      <div class="fighter-card">
-      <div class="fighter-number">10</div>
-        <img class="fighter-flag" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg" alt="Flag">
-        <img class="fighter-photo" src="https://armeniatoday.am/wp-content/uploads/2025/05/arman-tsarurkyan-.jpg" alt="Fighter"> 
-       <div class="fighter-info">
-          <h2>Арман Царукян</h2>
-          <p>Где родился: Ахалкалаки, Грузия</p>
-          <p>Год рождения: 11 октября, 1996</p>
-          <p>Рост: 170 см</p>
-          <p>Вес: 70 кг</p>
-          <p>Возраст: 28</p>
-          <p><strong>Побед: 22</strong></p>
-          <p><strong>Поражений: 3</strong></p>
-        </div> 
-
-      </div>
-      <div class="fighter-card">
-      <div class="fighter-number">10</div>
-        <img class="fighter-flag" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg" alt="Flag">
-        <img class="fighter-photo" src="https://armeniatoday.am/wp-content/uploads/2025/05/arman-tsarurkyan-.jpg" alt="Fighter"> 
-       <div class="fighter-info ">
-          <h2>Арман Царукян</h2>
-          <p>Где родился: Ахалкалаки, Грузия</p>
-          <p>Год рождения: 11 октября, 1996</p>
-          <p>Рост: 170 см</p>
-          <p>Вес: 70 кг</p>
-          <p>Возраст: 28</p>
-          <p><strong>Побед: 22</strong></p>
-          <p><strong>Поражений: 3</strong></p>
-        </div> 
+        <div class="fighters">
+          <div class="fighter-card1">Боец 1</div>
+          <span>VS</span>
+          <div class="fighter-card2">Боец 2</div>
+        </div>
+        <div id="result"></div>
       </div>
     </section>
-
-    <div class="start-fight-btn">
-      <button>Начать бой →</button>
-    </div>
-
-    <section class="recommended-section">
-      <h2>Выбор бойцов: Рекомендованные</h2>
-     
-      <div class="show-more-btn">
-        <button>Показать всех бойцов →</button>
-      </div>
+    <section class="recommended-section" id="fighters">
+      <h2>Все бойцы</h2>
       
-      <div class="recommended-cards">
-      </div>
+      <div class="recommended-cards"></div>
      
     </section>
   </main>
 
   <footer class="footer">
     <p>Work has been done by:</p>
-    <p>Ismail, Behzod, Jahongir, Said-Azam Front-end developers</p>
+    <p>Ismail, Behzod, Jqahongir, Said-Azam Front-end developers</p>
   </footer>
+
+
 </body>
 </html>

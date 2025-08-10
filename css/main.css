@@ -82,34 +82,6 @@
       display: flex;
     }
 
-    @media (max-width: 768px) {
-      .nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .mobile-nav {
-        right: 15px;
-        top: 110px;
-        width: calc(100% - 30px);
-      }
-      .hamburger-inner::before, .hamburger-inner::after {
-        width: 20px;
-        background: var(--white_color);
-      }
-    }
-
 /* fighting section */
 
 .main-section {
@@ -120,8 +92,16 @@
   display: flex;
   gap: 20px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 30px;
+  flex-direction: column;
+
+}
+
+.fighters{
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .fighter-card {
@@ -164,9 +144,9 @@
   margin-bottom: 15px;
 }
 .fighter-info-card{
-border-radius: 15px;
-width: 280px;
-background-color: #1a1a1a;
+  border-radius: 15px;
+  width: 280px;
+  background-color: #1a1a1a;
 }
 .fighter-info h2 {
   margin: 10px 0;
@@ -191,8 +171,7 @@ background-color: #1a1a1a;
   margin: 30px 0;
 }
 
-.start-fight-btn button,
-.show-more-btn button {
+.start-fight-btn {
   background-color: #facc15;
   color: var(--blackColor);
   font-weight: bold;
@@ -212,14 +191,13 @@ background-color: #1a1a1a;
 
 .recommended-section {
   background-color: #000;
-  padding: 40px 20px;
+  padding: 40px 10px;
   border-radius: 20px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   display: flex;
-
-align-items: center;
-justify-content: center;
-flex-direction: column;
+  flex-direction: column;
 }
 
 .recommended-section h2 {
@@ -227,12 +205,11 @@ flex-direction: column;
 }
 
 .recommended-cards {
-  display: flex;
+  display: grid;
   justify-content: center;
   gap: 25px;
-  flex-wrap: wrap;
-  width: 1300px;
-
+  grid-template-columns: repeat(4, 1fr);
+  flex-direction: column;
 }
 
 .card-placeholder {
@@ -253,7 +230,55 @@ flex-direction: column;
   color: #888;
   font-size: 14px;
 }
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: white;
+  width: 20px;
+}
+.hamburger {
+  position: relative;
+  z-index: 100; /* выше меню */
+}
 
+.mobile-nav {
+  position: absolute;
+  top: 80px; 
+  right: 20px;
+  z-index: 99; 
+}
+.hamburger {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.betRadio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.betRadio .label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+@media(max-width:1500px) {
+  .recommended-cards {
+  grid-template-columns: repeat(3, 300px);
+  }
+}
+@media(max-width: 1300px){
+  .recommended-cards {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
 @media (max-width: 1024px) {
   .main-section{
     margin-top: 100px;
@@ -333,3 +358,30 @@ flex-direction: column;
     padding: 20px 10px;
   }
 }
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  .recommended-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .mobile-nav {
+    right: 15px;
+    top: 110px;
+    width: calc(100% - 30px);
+  }
+}
+
